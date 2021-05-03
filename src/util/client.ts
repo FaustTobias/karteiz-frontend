@@ -2,7 +2,7 @@ import { derived, get } from "svelte/store";
 import { Readable, writable } from "svelte/store";
 import { getStore } from "svex";
 
-const endpoint = "https://94.16.110.202:8443/Karteiz";
+const endpoint = "https://wildfly.shanix.xyz/Karteiz";
 
 export async function call(method: string, args: any): Promise<any> {
     try {
