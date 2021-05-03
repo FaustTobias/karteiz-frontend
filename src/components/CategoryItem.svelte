@@ -23,7 +23,7 @@
     >
     {#if canDelete}
         <button
-            class="bg-gray-300 p-2 flex justify-center items-center focus:outline-none active:bg-red-500"
+            class="bg-gray-300 p-2 flex justify-center items-center focus:outline-none active:bg-red-500 disabled:text-gray-400 disabled:cursor-not-allowed"
             disabled={$isWorking}
             on:click={() => dispatch("delete")}
         >

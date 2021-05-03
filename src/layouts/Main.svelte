@@ -4,12 +4,12 @@
 
     const bottomNavigationCount = getStore("ui.bottomNavigationCount");
 
-    onMount(async () => {
-        await tick();
-        $bottomNavigationCount++;
+    onMount(() => {
+        bottomNavigationCount.update((val) => val + 1);
 
-        return () => {
-            $bottomNavigationCount--;
+        return async () => {
+            await new Promise((resolve) => setTimeout(resolve, 500));
+            bottomNavigationCount.update((val) => val - 1);
         };
     });
 </script>

@@ -10,10 +10,10 @@
 
 <Main>
     {#if categories.length === 0}
-        <div class="text-2xl text-center mt-12 mb-4 px-4">Hallo {$name}!</div>
-        <div class="text-lg text-center mb-4 px-4">Um mit dem Lernen zu starten benötigst du eine Kategorie.</div>
+        <div class="text-2xl text-center mt-12 mb-4 px-4">Einstellungen</div>
+        <div class="text-lg text-center mb-4 px-4">Hier kannst du Einstellungen vornehmen</div>
         <div class="text-lg text-center mb-12 px-4">
-            <a href="#/categories">Klicke hier, um loszulegen!</a>
+            <a href="#/logout">Abmelden</a>
         </div>
     {:else}
         <div class="text-2xl text-center mt-12 mb-4 px-4">Hello, Tobias!</div>

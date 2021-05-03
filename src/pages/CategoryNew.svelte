@@ -1,11 +1,10 @@
 <script lang="ts">
-    // import { onMount } from "svelte";
     import { getStore } from "svex";
     import { push } from "svelte-spa-router";
     import Main from "../layouts/Main.svelte";
     import colors from "tailwindcss/colors";
     import Button from "../components/Button.svelte";
-    import { client } from "../util";
+    import { call } from "../util/client";
 
     const availableColors = [
         colors.white,
@@ -24,17 +23,9 @@
     const userName = getStore("user.name");
     const isWorking = getStore("client.isWorking");
 
-    // onMount(async () => {
-    //     try {
-    //         const result = await client.call("card/getCategories", {});
-
-    //         availableCategories = result.categories.map((category) => ({ name: category.catName, id: category.color }));
-    //     } catch {}
-    // });
-
     async function create() {
         try {
-            await client.call("card/createCategory", {
+            await call("card/createCategory", {
                 userName: $userName,
                 catName: name,
                 color: selectedColor,

@@ -20,7 +20,7 @@ registerStore(
     "client.isWorking",
     derived([getStore("client.workCount")], ([$workCount]) => $workCount > 0),
 );
-registerStore("user.name", writable(null));
+registerStore("user.name", writable(localStorage.getItem("karteiz-userName")));
 registerStore(
     "user.isLoggedIn",
     derived([getStore("user.name")], ([$name]) => !!$name),
@@ -30,3 +30,9 @@ registerStore(
     "ui.isBottomNavigationVisible",
     derived([getStore("ui.bottomNavigationCount")], ([$bottomNavigationCount]) => $bottomNavigationCount > 0),
 );
+
+getStore("user.name").subscribe(($userName) => {
+    localStorage.setItem("karteiz-userName", $userName);
+});
+
+getStore("ui.bottomNavigationCount").subscribe((count) => console.log(count));
