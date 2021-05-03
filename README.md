@@ -34,6 +34,12 @@ Start development server
 yarn dev
 ```
 
+Build production
+
+```bash
+yarn build
+```
+
 ## Maintainer
 
 [Tobias Faust](https://github.com/FaustTobias)
