@@ -8,6 +8,9 @@
     },
     "arc": {
         "app": "karteiz",
+        "static": {
+            "folder": "dist"
+        },
         "http": []
     },
     "devDependencies": {
