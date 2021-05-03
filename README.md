@@ -2,7 +2,7 @@
 
 # Karteiz
 
-Lean with ease
+Learn with ease
 
 </div>
 
