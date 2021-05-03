@@ -7,7 +7,8 @@
         "serve": "vite preview"
     },
     "arc": {
-        "app": "karteiz"
+        "app": "karteiz",
+        "http": []
     },
     "devDependencies": {
         "@architect/sandbox": "^3.4.2",
