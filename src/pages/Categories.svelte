@@ -12,6 +12,15 @@
 
     let categories = [];
 
+    async function remove(id) {
+        try {
+            await client.call("card/deleteCategory", { userName: $userName, categoryId: id });
+            await refresh();
+        } catch {
+        } finally {
+        }
+    }
+
     async function refresh() {
         try {
             const result = await client.call("card/getCategories", { userName: $userName });
@@ -29,15 +38,6 @@
         }
     }
 
-    async function remove(id) {
-        try {
-            await client.call("card/deleteCategory", { userName: $userName, categoryId: id });
-            await refresh();
-        } catch {
-        } finally {
-        }
-    }
-
     onMount(async () => {
         await refresh();
     });
@@ -50,16 +50,16 @@
         <Button text="Kategorie anlegen" on:click={() => push("/categories/new")} />
     </div>
     {#if categories.length > 0}
-    <div class="flex flex-col m-4 gap-2 pb-4">
-        {#each categories as category, index (category.id)}
-            <CategoryItem
-                {...category}
-                {index}
-                canDelete
-                on:delete={() => remove(category.id)}
-                on:click={() => push(`/categories/${category.id}`)}
-            />
-        {/each}
-    </div>
+        <div class="flex flex-col m-4 gap-2 pb-4">
+            {#each categories as category, index (category.id)}
+                <CategoryItem
+                    {...category}
+                    {index}
+                    canDelete
+                    on:delete={() => remove(category.id)}
+                    on:click={() => push(`/categories/${category.id}`)}
+                />
+            {/each}
+        </div>
     {/if}
 </Main>

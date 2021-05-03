@@ -3,7 +3,7 @@
     import { getStore } from "svex";
     import { replace } from "svelte-spa-router";
     import { client } from "../util";
-    import Button from "../components/Button.svelte"
+    import Button from "../components/Button.svelte";
 
     let name = "";
     let error = "";
