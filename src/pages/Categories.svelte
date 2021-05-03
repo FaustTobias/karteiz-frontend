@@ -20,10 +20,10 @@
 </script>
 
 <Main>
-    <div class="text-2xl text-center mt-12 mb-4 px-4">Kategorien</div>
-    <div class="text-lg text-center mb-12 px-4">Hier kannst du Kategorien und ihre Karten bearbeiten!</div>
+    <div class="text-2xl text-center mt-12 mb-4 px-4">Categories</div>
+    <div class="text-lg text-center mb-12 px-4">Here you can modify categories with their cards!</div>
     <div class="mx-auto mb-4">
-        <Button text="Kategorie anlegen" on:click={() => push("/categories/new")} />
+        <Button text="Add a new category" on:click={() => push("/categories/new")} />
     </div>
     {#if $categories.items.length > 0}
         <div class="flex flex-col m-4 gap-2 pb-4">

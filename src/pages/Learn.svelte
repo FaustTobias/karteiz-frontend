@@ -47,7 +47,7 @@
     {#if currentCard}
         <div class="text-2xl text-center mt-12 mb-4 px-4">({currentCardIndex + 1} / {shuffledCards.length})</div>
         <div class="text-lg text-center mb-12 px-4">
-            Lass uns ein wenig <i>{category.name}</i> lernen!
+            Let's learn a little bit of <i>{category.name}</i>!
         </div>
         {#if !isSwitchingCards}
             <div class="cards w-72 h-40 self-center relative cursor-pointer" transition:fly|local>

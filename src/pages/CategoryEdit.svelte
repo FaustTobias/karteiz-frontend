@@ -31,12 +31,12 @@
 
 <Main>
     {#if category}
-        <div class="text-2xl text-center mt-12 mb-4 px-4">Kategorie bearbeiten</div>
+        <div class="text-2xl text-center mt-12 mb-4 px-4">Edit category</div>
         <div class="text-lg text-center mb-12 px-4 flex flex-row gap-4 items-center justify-center">
             <div class="w-4 h-8" style="background-color: {category.color}" />
             <div>{category.name}</div>
         </div>
-        <div class="flex-1 flex flex-col gap-4 p-4">
+        <div class="flex flex-col gap-4 p-4">
             {#each $cards.items as card (card.id)}
                 <div class="flex flex-row gap-4 bg-gray-100 border-2 border-gray-200">
                     <div class="flex flex-col gap-4 flex-1 p-4">
@@ -90,7 +90,7 @@
             {/each}
         </div>
         <div class="text-center p-4">
-            <Button text="Karte hinzufügen" on:click={addCard} />
+            <Button text="Add a new card" on:click={addCard} />
         </div>
     {/if}
 </Main>

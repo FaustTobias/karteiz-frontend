@@ -34,7 +34,7 @@
 
 <div class="fixed top-0 right-0 bottom-0 left-0 flex flex-col">
     <div class="text-center text-5xl px-4 mt-12 font-semibold tracking-tight text-gray-700">Karteiz</div>
-    <div class="text-center text-xl px-4 -mt-2 font-light tracking-wide text-gray-400">learn with ease</div>
+    <div class="text-center text-xl px-4 -mt-2 font-light tracking-wide text-gray-400">Learn with ease</div>
     <div class="flex-1" />
     {#if error}
         <div transition:slide class="mx-4 px-4 py-2 bg-red-200 text-red-900 font-semibold border-2 border-red-300">
@@ -48,11 +48,11 @@
                 bind:value={name}
                 type="text"
                 autofocus
-                placeholder="Name"
+                placeholder="name"
                 class="absolute top-0 right-0 bottom-0 left-0 w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:border-yellow-400"
             />
         </div>
-        <Button text="Anmelden" disabled={$isWorking} on:click={login} />
+        <Button text="Login" disabled={$isWorking} on:click={login} />
     </div>
-    <div class="text-center mb-6">Noch nicht registriert? <a href="#/register">Hier registrieren!</a></div>
+    <div class="text-center mb-6">Don't have an account? <a href="#/register">Create one!</a></div>
 </div>

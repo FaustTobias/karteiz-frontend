@@ -28,11 +28,11 @@
 </script>
 
 <Main>
-    <div class="text-2xl text-center mt-12 mb-4 px-4">Karte anlegen</div>
-    <div class="text-lg text-center mb-12 px-4">Lege eine neue Karte an!</div>
+    <div class="text-2xl text-center mt-12 mb-4 px-4">Add card</div>
+    <div class="text-lg text-center mb-12 px-4">Create a new card!</div>
     <div class="flex flex-col gap-4">
         <div class="mx-4 flex flex-row gap-4 items-center">
-            <div class="w-20">Frage</div>
+            <div class="w-20">Question</div>
             <div class="relative flex-1 h-10">
                 <input
                     type="text"
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="mx-4 flex flex-row gap-4 items-center">
-            <div class="w-20">Antwort</div>
+            <div class="w-20">Answer</div>
             <div class="relative flex-1 h-10">
                 <input
                     type="text"
@@ -53,6 +53,6 @@
         </div>
     </div>
     <div class="flex flex-row justify-center mt-8">
-        <Button text="Karte anlegen" on:click={create} disabled={$isWorking} />
+        <Button text="Create card" on:click={create} disabled={$isWorking} />
     </div>
 </Main>
