@@ -24,6 +24,14 @@
     const isWorking = getStore("client.isWorking");
 
     async function create() {
+        if (name.trim() === "") {
+            return;
+        }
+
+        if (selectedColor === null) {
+            return;
+        }
+
         try {
             await call("card/createCategory", {
                 userName: $userName,
@@ -37,37 +45,39 @@
 </script>
 
 <Main>
-    <div class="text-2xl text-center mt-12 mb-4 px-4">Add category</div>
-    <div class="text-lg text-center mb-12 px-4">Create a new category!</div>
-    <div class="flex flex-col gap-4">
-        <div class="mx-4 flex flex-row gap-4 items-center">
-            <div class="w-20">Name</div>
-            <div class="relative flex-1 h-10">
-                <input
-                    type="text"
-                    class="absolute top-0 left-0 w-full h-full border-2 border-gray-300 focus:border-yellow-400 px-2 focus:outline-none"
-                    bind:value={name}
-                />
-            </div>
-        </div>
-        <div class="mx-4 flex flex-row gap-4 items-center">
-            <div class="w-20">Color</div>
-            <div class="flex-1 overflow-x-scroll flex gap-2 p-2 border-2 border-gray-300">
-                {#each availableColors as color}
-                    <button
-                        class="color w-8 h-8 bg-red-500 flex-shrink-0 flex-grow-0 border-2 border-white focus:outline-none"
-                        class:selected={selectedColor === color}
-                        on:click={() => (selectedColor = color)}
-                        style="background-color: {color}"
+    <form class="flex-1 overflow-auto flex flex-col" disabled={$isWorking} on:submit|preventDefault={create}>
+        <div class="text-2xl text-center mt-12 mb-4 px-4">Add category</div>
+        <div class="text-lg text-center mb-12 px-4">Create a new category!</div>
+        <div class="flex flex-col gap-4">
+            <div class="mx-4 flex flex-row gap-4 items-center">
+                <div class="w-20">Name</div>
+                <div class="relative flex-1 h-10">
+                    <input
+                        type="text"
+                        class="absolute top-0 left-0 w-full h-full border-2 border-gray-300 focus:border-yellow-400 px-2 focus:outline-none"
+                        bind:value={name}
                     />
-                {/each}
-                <div class="w-1 flex-shrink-0 flex-grow-0" />
+                </div>
+            </div>
+            <div class="mx-4 flex flex-row gap-4 items-center">
+                <div class="w-20">Color</div>
+                <div class="flex-1 overflow-x-scroll flex gap-2 p-2 border-2 border-gray-300">
+                    {#each availableColors as color}
+                        <button
+                            class="color w-8 h-8 bg-red-500 flex-shrink-0 flex-grow-0 border-2 border-white focus:outline-none"
+                            class:selected={selectedColor === color}
+                            on:click={() => (selectedColor = color)}
+                            style="background-color: {color}"
+                        />
+                    {/each}
+                    <div class="w-1 flex-shrink-0 flex-grow-0" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="flex flex-row justify-center mt-8">
-        <Button text="Create category" on:click={create} disabled={$isWorking} />
-    </div>
+        <div class="flex flex-row justify-center mt-8">
+            <Button text="Create category" disabled={$isWorking} />
+        </div>
+    </form>
 </Main>
 
 <style lang="postcss">

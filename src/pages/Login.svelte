@@ -41,7 +41,7 @@
             {error}
         </div>
     {/if}
-    <div class="mx-4 my-6 flex gap-4">
+    <form class="mx-4 my-6 flex gap-4" disabled={$isWorking} on:submit|preventDefault={login}>
         <div class="flex-1 relative">
             <!-- svelte-ignore a11y-autofocus -->
             <input
@@ -52,7 +52,7 @@
                 class="absolute top-0 right-0 bottom-0 left-0 w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:border-yellow-400"
             />
         </div>
-        <Button text="Login" disabled={$isWorking} on:click={login} />
-    </div>
+        <Button text="Login" disabled={$isWorking} />
+    </form>
     <div class="text-center mb-6">Don't have an account? <a href="#/register">Create one!</a></div>
 </div>

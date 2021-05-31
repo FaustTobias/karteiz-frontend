@@ -16,6 +16,10 @@
     async function register() {
         try {
             error = "";
+            if (name.trim() === "") {
+                error = "Please enter a name."
+            }
+
             const result = await client.call("user/register", {
                 loginName: name,
             });
@@ -41,7 +45,7 @@
             {error}
         </div>
     {/if}
-    <div class="mx-4 my-6 flex gap-4">
+    <form class="mx-4 my-6 flex gap-4" disabled={$isWorking} on:submit|preventDefault={register}>
         <div class="flex-1 relative">
             <!-- svelte-ignore a11y-autofocus -->
             <input
@@ -52,7 +56,7 @@
                 class="absolute top-0 right-0 bottom-0 left-0 w-full px-4 py-2 border-2 border-gray-300 focus:outline-none focus:border-yellow-400"
             />
         </div>
-        <Button text="Register" disabled={$isWorking} on:click={register} />
-    </div>
+        <Button text="Register" />
+    </form>
     <div class="text-center mb-6">Already have an account? <a href="#/login">Login!</a></div>
 </div>
