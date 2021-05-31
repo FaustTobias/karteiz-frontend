@@ -17,7 +17,8 @@
         try {
             error = "";
             if (name.trim() === "") {
-                error = "Please enter a name."
+                error = "Please enter a name.";
+                return;
             }
 
             const result = await client.call("user/register", {
