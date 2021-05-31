@@ -3,6 +3,7 @@
     import { push } from "svelte-spa-router";
     import Main from "../layouts/Main.svelte";
     import { getCategories, getCards } from "../util/client";
+    import { replace } from "svelte-spa-router";
 
     export let params: Record<string, any>;
 
@@ -10,6 +11,7 @@
     $: cards = category ? getCards(category.id) : null;
     $: shuffledCards = cards ? (shuffle($cards.items) as any[]) : null;
     $: currentCard = shuffledCards ? shuffledCards[currentCardIndex] : null;
+    $: if (cards && $cards?.items?.length === 0) replace("/");
 
     let currentCardIndex = 0;
     let currentCardFace = 0;
